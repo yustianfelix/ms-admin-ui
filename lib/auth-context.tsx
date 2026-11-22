@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import type { AuthContextValue, HRUser, LoginResponse } from "./_types/auth";
 
 export type { HRUser } from "./_types/auth";
@@ -20,7 +20,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<HRUser | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
-  const pathname = usePathname();
 
   useEffect(() => {
     let cancelled = false;
@@ -55,10 +54,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     if (isLoading) return;
-    const isLogin = pathname === "/login";
+    const isLogin = window.location.pathname === "/login";
     if (!user && !isLogin) router.replace("/login");
     if (user && isLogin) router.replace("/employees");
-  }, [isLoading, pathname, router, user]);
+  }, [isLoading, router, user]);
 
   const login = async (email: string, password: string) => {
     const response = await fetch(`${GATEWAY_URL}/auth/login`, {
