@@ -1,10 +1,4 @@
-import {ArrowUpRight, Check, UsersRound} from "lucide-react";
-
-const attendance = [
-    ["Alex Morgan", "Design", "08:42 AM"],
-    ["Jamie Lee", "Engineering", "08:51 AM"],
-    ["Sam Kim", "Operations", "09:03 AM"],
-];
+import {ArrowUpRight, UsersRound} from "lucide-react";
 
 export function MarketingAside() {
     return (
@@ -34,17 +28,10 @@ export function MarketingAside() {
                                 className="flex items-center gap-1.5 rounded-full bg-[#e7f3e9] px-2.5 py-1 text-[10px] font-semibold text-[#34714d]"><span
                                 className="size-1.5 rounded-full bg-[#4d9b66]"/>Live</span>
                         </div>
-                        {attendance.map(([name, department, time]) => (
-                            <div key={name}
-                                 className="mt-3 flex items-center justify-between rounded-xl bg-white px-3 py-2.5">
-                                <div className="flex items-center gap-2.5"><span
-                                    className="flex size-8 items-center justify-center rounded-full bg-[#e6ede7] text-[10px] font-semibold">{name.split(" ").map((part) => part[0]).join("")}</span><span><span
-                                    className="block text-xs font-semibold">{name}</span><span
-                                    className="text-[10px] text-[#929d95]">{department}</span></span></div>
-                                <span className="flex items-center gap-1.5 text-[10px] text-[#718078]"><Check
-                                    className="size-3 text-[#43815b]"/>{time}</span>
-                            </div>
-                        ))}
+                        <div className="mt-4 grid grid-cols-2 gap-3">
+                            <div className="rounded-xl bg-white px-4 py-3"><p className="text-[10px] text-[#929d95]">Employees</p><p className="mt-1 text-lg font-semibold">Centralized</p></div>
+                            <div className="rounded-xl bg-white px-4 py-3"><p className="text-[10px] text-[#929d95]">Attendance</p><p className="mt-1 text-lg font-semibold">Real-time</p></div>
+                        </div>
                     </div>
                     <div
                         className="absolute right-0 bottom-5 flex items-center gap-3 rounded-2xl border border-white/15 bg-[#285844]/90 px-4 py-3">

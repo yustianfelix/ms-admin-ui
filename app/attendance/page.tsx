@@ -6,7 +6,7 @@ import { toast } from "sonner";
 import { Navbar } from "@/components/navbar";
 import { apiRequest } from "@/lib/api";
 import { useAuth } from "@/lib/auth-context";
-import type { Employee } from "@/lib/hr-data";
+import type { Employee } from "@/lib/_types/hr";
 import { AttendanceHeader } from "./_components/attendance-header";
 import { AttendanceFilters } from "./_components/attendance-filters";
 import { AttendanceSummary } from "./_components/attendance-summary";

@@ -1,4 +1,4 @@
-import type { Employee } from "@/lib/hr-data";
+import type { Employee } from "@/lib/_types/hr";
 import type { Pagination } from "@/lib/_types/api";
 
 export type AttendanceRecord = {
